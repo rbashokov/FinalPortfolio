@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruslan Bashokov | Portfolio Quest</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- styles -->
+    <link rel="stylesheet" href="style.css">
+    <audio id="audioSignal" src="assets/audio-signal.mp3" loop preload="auto"></audio>
+
+    <!-- script -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- game -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- title -->
+    <div class="hud hud_left">
+        <p class="small_label dark_label">by ruslan bashokov</p>
+        <h1>the<br>portfolio<br>quest</h1>
+    </div>
+
+    <!-- controls -->
+    <div class="hud hud_right">
+        <p><strong>move</strong> wasd / arrows</p>
+        <p><strong>enter</strong> e</p>
+        <p><strong>hub</strong> h</p>
+        <p><strong>reset</strong> r</p>
+    </div>
+
+    <!-- unlock mode -->
+    <div class="mode_toggle">
+        <span>unlock projects</span>
+
+        <label class="toggle">
+            <input id="unlockModeToggle" type="checkbox">
+            <span class="toggle_slider"></span>
+        </label>
+    </div>
+
+    <!-- hub intro panel -->
+    <div id="hubIntroPanel" class="panel hidden">
+        <p class="small_label">welcome to</p>
+        <h2>The Portfolio Quest</h2>
+        <p>
+            Hi! I am Ruslan Bashokov and this is my digital portfolio that showcases the projects I have done this semester.
+            You can either choose to play a set of mini-games, traveling through different portals and unlocking the links
+            to the projects by completing the theme-based trials or turn on the "unlock projects" mode in the top right corner,
+            making portals reveal the project links directly. You can also check out the plain version of the website clicking "About me".
+        </p>
+
+        <div class="panel_actions">
+            <button id="gotItButton" type="button">Got it!</button>
+            <a id="aboutLink" href="#">About Me</a>
+        </div>
+    </div>
+
+    <!-- game intro panel -->
+    <div id="introPanel" class="panel hidden">
+        <p class="small_label">game challenge</p>
+        <h2 id="introTitle">project title</h2>
+        <p id="introText">game description</p>
+
+        <div class="panel_actions">
+            <button id="startGameButton" type="button">start game</button>
+            <button id="backFromIntroButton" type="button">back to hub</button>
+        </div>
+    </div>
+
+    <!-- unlock panel -->
+    <div id="unlockPanel" class="panel hidden">
+        <p class="small_label">project unlocked</p>
+        <h2 id="unlockTitle">project title</h2>
+        <p id="unlockText">project description</p>
+
+        <div class="panel_actions">
+            <a id="unlockLink" href="#" target="_blank" rel="noopener">visit project</a>
+            <button id="playAgainButton" type="button">play again</button>
+            <button id="hubButton" type="button">back to hub</button>
+        </div>
+    </div>
+</body>
+</html>

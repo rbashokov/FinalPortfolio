@@ -1,0 +1,238 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* base */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #0d0d0d;
+    color: #f4efe3;
+    font-family: "Poppins", sans-serif;
+}
+
+/* canvas */
+canvas {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    background: #0d0d0d;
+}
+
+/* hud */
+.hud {
+    position: fixed;
+    z-index: 5;
+    color: #f4efe3;
+    user-select: none;
+    pointer-events: none;
+}
+
+.hud_left {
+    left: 28px;
+    top: 24px;
+}
+
+.hud_left h1 {
+    font-size: clamp(2rem, 5vw, 4.8rem);
+    line-height: 0.88;
+    letter-spacing: -0.06em;
+    font-weight: 800;
+}
+
+.hud_right {
+    right: 28px;
+    top: 28px;
+    text-align: right;
+    color: rgba(244, 239, 227, 0.72);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.hud_right strong {
+    color: #c49243;
+    font-weight: 700;
+}
+
+.small_label {
+    color: #5b5852;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.dark_label {
+    color: #c49243;
+}
+
+/* unlock mode */
+.mode_toggle {
+    position: fixed;
+    right: 28px;
+    top: 128px;
+    z-index: 8;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(244, 239, 227, 0.9);
+    font-size: 0.95rem;
+    font-weight: 600;
+    user-select: none;
+}
+
+.toggle {
+    position: relative;
+    width: 58px;
+    height: 32px;
+    display: inline-block;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle_slider {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: rgba(244, 239, 227, 0.18);
+    border: 1px solid rgba(244, 239, 227, 0.18);
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.toggle_slider::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #f4efe3;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.toggle input:checked + .toggle_slider {
+    background: rgba(196, 146, 67, 0.4);
+    border-color: rgba(196, 146, 67, 0.55);
+}
+
+.toggle input:checked + .toggle_slider::before {
+    transform: translateX(26px);
+    background: #c49243;
+}
+
+/* panels */
+.panel {
+    width: min(680px, calc(100% - 48px));
+    min-height: auto;
+    padding: 34px 38px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 20;
+    transform: translate(-50%, -50%);
+    background: #d9d4ca;
+    color: #0a0b10;
+    border-radius: 32px;
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.45);
+}
+
+.panel.hidden {
+    display: none;
+}
+
+.panel h2 {
+    font-size: clamp(2.1rem, 5vw, 4rem);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.panel p {
+    max-width: 100%;
+    color: #5b5852;
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    line-height: 1.65;
+}
+
+.panel_actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.panel_actions a,
+.panel_actions button {
+    min-width: 150px;
+    min-height: 52px;
+    padding: 0 24px;
+    border: 2px solid rgba(10, 11, 16, 0.9);
+    border-radius: 999px;
+    background: transparent;
+    color: #0a0b10;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+
+.panel_actions a:hover,
+.panel_actions button:hover {
+    background: #0a0b10;
+    color: #f4efe3;
+    transform: translateY(-2px);
+}
+
+/* responsive */
+@media (max-width: 900px) {
+    .panel {
+        width: calc(100% - 28px);
+        padding: 28px 22px;
+        border-radius: 30px;
+    }
+
+    .panel_actions {
+        margin-top: 24px;
+    }
+
+    .panel_actions a,
+    .panel_actions button {
+        width: 100%;
+        min-width: 0;
+        min-height: 54px;
+    }
+
+    .hud_left {
+        left: 18px;
+        top: 18px;
+    }
+
+    .hud_right {
+        right: 18px;
+        top: auto;
+        bottom: 18px;
+    }
+
+    .mode_toggle {
+        right: 18px;
+        top: 104px;
+    }
+}
