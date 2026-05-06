@@ -377,7 +377,7 @@ function drawLoop() {
     updatePlayer(false);
     checkLoopExit();
     drawPlayer();
-    drawLevelText("the loop", loopMessage);
+    drawLevelText("the loop escape", loopMessage);
 }
 
 function drawLoopRoom() {
@@ -455,7 +455,7 @@ function drawSwitch() {
     const controlText = controlsReversed ? "controls switched" : "controls normal";
     const subtitleColor = controlsReversed ? "#ff4d4d" : "rgba(244, 239, 227, 0.9)";
 
-    drawLevelText("the switch", controlText + " / lives " + switchLives + " / " + Math.ceil(remaining / 1000) + "s", subtitleColor);
+    drawLevelText("the raining assignments", controlText + " / lives " + switchLives + " / " + Math.ceil(remaining / 1000) + "s", subtitleColor);
 
     if (remaining <= 0) {
         unlockProject("switch");
@@ -568,7 +568,7 @@ function drawAudio() {
     drawAudioLight(closeness);
     drawPlayer();
     drawVolumeMeter(closeness);
-    drawLevelText("audio story", "follow the volume. the signal is hidden.");
+    drawLevelText("the sound pursuit", "follow the volume. the signal is hidden.");
 
     if (distanceToTarget < 32) {
         unlockProject("audio");
@@ -699,7 +699,7 @@ function drawFocus() {
     drawFocusWorld();
     updateDistractions();
     drawPlayer();
-    drawLevelText("lock in", focusMessage);
+    drawLevelText("the way to lock in", focusMessage);
 
     if (distance(player.x, player.y, width / 2, 62) < 42) {
         unlockProject("focus");
